@@ -102,9 +102,9 @@ export default function AiWidget() {
           <div>
             <div className="chat-head-title">
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981' }}></span>
-              Thulynan AI Copilot
+              Thulynan AI Assistant
             </div>
-            <span className="chat-head-sub">Instant answers &amp; scope scoping</span>
+            <span className="chat-head-sub">Your AI-powered partner</span>
           </div>
           <button
             className="chat-close-btn"

@@ -14,13 +14,57 @@ export default function Contact() {
     email: '',
     message: '',
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-    setSelectedService('Web Platform');
+    setStatus('submitting');
+    setErrorMessage('');
+
+    const targetEmail = 'contact@thulynan.in';
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      service: selectedService,
+      message: formData.message,
+      _subject: `New Project Inquiry: [${selectedService}] from ${formData.name}`,
+      _template: 'table',
+      _captcha: 'false',
+    };
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setSelectedService('Web Platform');
+      } else {
+        throw new Error('Form submission failed. Please try again.');
+      }
+    } catch (err) {
+      console.error('Contact submission error:', err);
+      setStatus('error');
+      setErrorMessage(
+        'Could not send inquiry automatically. Click below to email us directly.'
+      );
+    }
+  };
+
+  const getDirectMailto = () => {
+    const subject = encodeURIComponent(`Project Inquiry: ${selectedService}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name || ''}\nEmail: ${formData.email || ''}\nService: ${selectedService}\n\nGoals / Requirements:\n${formData.message || ''}`
+    );
+    return `mailto:contact@thulynan.in?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -142,6 +186,7 @@ export default function Contact() {
                 type="text"
                 placeholder="e.g. Alex Morgan"
                 required
+                disabled={status === 'submitting'}
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
@@ -156,6 +201,7 @@ export default function Contact() {
                 type="email"
                 placeholder="alex@company.com"
                 required
+                disabled={status === 'submitting'}
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
@@ -169,13 +215,19 @@ export default function Contact() {
                 name="message"
                 placeholder="Briefly describe what you are looking to solve or build..."
                 required
+                disabled={status === 'submitting'}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               ></textarea>
             </div>
 
-            <button className="btn btn-primary btn-pill" type="submit" style={{ width: '100%' }}>
-              Send Inquiry
+            <button
+              className="btn btn-primary btn-pill"
+              type="submit"
+              disabled={status === 'submitting'}
+              style={{ width: '100%', opacity: status === 'submitting' ? 0.75 : 1, cursor: status === 'submitting' ? 'wait' : 'pointer' }}
+            >
+              {status === 'submitting' ? 'Sending...' : 'Send Inquiry'}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"
                 strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -183,13 +235,26 @@ export default function Contact() {
               </svg>
             </button>
 
-            <div className={`form-status ${submitted ? 'success' : ''}`} id="formStatus">
-              ✓ Thank you! Your message has been sent. We will review and reply within 1 business day.
-            </div>
+            {status === 'success' && (
+              <div className="form-status success" id="formStatus" style={{ display: 'block', marginTop: '14px', color: '#15803d', fontWeight: 600 }}>
+                ✓ Thank you! Your message has been sent to contact@thulynan.in. We will review and reply within 1 business day.
+              </div>
+            )}
+
+            {status === 'error' && (
+              <div className="form-status error" style={{ display: 'block', marginTop: '14px', color: '#b91c1c', fontSize: '0.875rem' }}>
+                ⚠️ {errorMessage}{' '}
+                <a
+                  href={getDirectMailto()}
+                  style={{ color: '#ea580c', fontWeight: 600, textDecoration: 'underline' }}
+                >
+                  Send via Mail Client &rarr;
+                </a>
+              </div>
+            )}
           </form>
         </div>
       </div>
     </section>
   );
 }
-

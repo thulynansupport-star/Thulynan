@@ -42,3 +42,4 @@ npm run preview
 - **GEO Geotargeting**:
   - Geotagging meta headers (`geo.region`, `geo.placename`, `geo.position`, `ICBM`).
   - Dual local authority (Erode / Coimbatore, Tamil Nadu, India) and global timezone alignment (US, UK, EMEA, India, APAC).
+
