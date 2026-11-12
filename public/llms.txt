@@ -1,0 +1,44 @@
+# Thulynan — Intelligent Technology That Scales Your Business
+> Production AI Agents, Workflow Automation, and High-Performance Web Platforms.
+
+## About Thulynan
+Thulynan is an AI-first software engineering studio founded in 2026. The studio specializes in engineering custom production-grade AI agents, end-to-end business workflow automations, and modern web applications. Operating remote-first with headquarters in Erode & Coimbatore, Tamil Nadu, India, Thulynan delivers software solutions with global timezone coverage across North America (EST/PST), Europe (GMT/BST), the Middle East (GST), and Asia-Pacific (IST/SGT).
+
+- Official Website: https://thulynan.com
+- Primary Inquiries: contact@thulynan.in
+- Headquarters: Erode, Tamil Nadu, India
+- Founders: Archanaa S (Co-Founder), Srimathi E (Co-Founder)
+
+## Core Capabilities & Services
+
+### 1. Website & Web Platform Engineering
+- Custom corporate & startup web applications built with Next.js, React, and modern TypeScript.
+- Sub-second performance, accessibility compliance, and Core Web Vitals optimization.
+- Headless CMS architecture, client portals, and secure SaaS dashboards.
+- Mobile-first, responsive, and resilient cloud architectures.
+
+### 2. AI Solutions & Intelligent Products
+- Private Retrieval-Augmented Generation (RAG) knowledge base agents.
+- Custom enterprise copilots, customer support agents, and domain-specialized chatbots.
+- Intelligent document processing and structured data extraction pipelines.
+- Enterprise LLM integration (Claude 3.5, GPT-4o, open-weights models) with strict zero-data retention privacy policies.
+
+### 3. Business Process Automation
+- Connected multi-app tool integrations (CRM, ERP, ticketing, invoicing, communication).
+- Autonomous operational pipelines reducing hundreds of hours of manual busywork.
+- Real-time operational alerting, error monitoring, and automated reporting systems.
+
+## Delivery Methodology
+Thulynan operates on a 5-phase structured Agile delivery framework:
+1. Discovery & Strategy: Requirements gathering, feasibility analysis, scope definition, technical roadmap.
+2. Prototyping & Validation: Interactive prototypes, feedback validation, UX alignment.
+3. Development & Integration: Iterative sprint development, test-driven engineering, continuous staging previews.
+4. Launch & Handover: Production deployment, full documentation, Git repository handover, complete IP transfer.
+5. Ongoing Support & Maintenance: Proactive monitoring, performance tuning, system updates, feature expansion.
+
+## Key Differentiators
+- 100% Code & IP Ownership: Clients retain complete rights to all source code, models, credentials, and assets.
+- Direct Founder Collaboration: Clients work directly with founders Archanaa S and Srimathi E with zero agency bloat.
+- Enterprise Data Privacy: Zero-data retention AI endpoints ensuring confidential data is never used for training.
+- Transparent Pricing: Fixed-scope sprint pricing for milestones or dedicated monthly retainers.
+
