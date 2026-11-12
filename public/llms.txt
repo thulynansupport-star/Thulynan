@@ -1,4 +1,4 @@
-# Thulynan — Intelligent Technology That Scales Your Business
+# Thulynan
 > Production AI Agents, Workflow Automation, and High-Performance Web Platforms.
 
 ## About Thulynan
