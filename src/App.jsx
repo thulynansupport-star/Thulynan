@@ -9,14 +9,11 @@ import Faq from './components/Faq';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AiWidget from './components/AiWidget';
-// [LAUNCH ONLY] Can be removed after launch
-import LaunchCurtain from './components/LaunchCurtain';
+
 
 export default function App() {
   return (
     <>
-      {/* [LAUNCH ONLY] Initial celebratory curtain reveal - safely remove anytime */}
-      <LaunchCurtain />
       <Header />
       <main id="main-content">
         <Hero />

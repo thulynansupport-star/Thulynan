@@ -70,7 +70,7 @@ export default function Process() {
     <section className="section section-alt" id="process">
       <div className="container">
         <div className="section-head">
-          <div className="eyebrow"><span class="dot"></span> How We Deliver</div>
+          <div className="eyebrow"><span className="dot"></span> How We Deliver</div>
           <h2>Built around your vision. Delivered with precision.</h2>
           <p className="lead">
             We tailor every development cycle to your business goals, project complexity, and timeline — keeping you
@@ -81,10 +81,12 @@ export default function Process() {
         <div className="process-timeline">
           {phases.map((p) => (
             <div className="process-card" key={p.phase}>
-              <div className="process-phase-icon">
-                {p.icon}
+              <div className="process-card-header">
+                <div className="process-phase-icon">
+                  {p.icon}
+                </div>
+                <span className="step-badge">{p.phase}</span>
               </div>
-              <span className="step-badge">{p.phase}</span>
               <h4>{p.title}</h4>
               <p>{p.desc}</p>
             </div>
@@ -94,4 +96,3 @@ export default function Process() {
     </section>
   );
 }
-
